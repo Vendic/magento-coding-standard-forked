@@ -1,5 +1,5 @@
 {
-    "name": "vendic/magento-coding-standard-forked",
+    "name": "magento/magento-coding-standard",
     "description": "A set of Magento specific PHP CodeSniffer rules. Fork by Vendic",
     "license": [
         "OSL-3.0",
@@ -17,6 +17,7 @@
         "magento/php-compatibility-fork": "^0.1"
     },
     "require-dev": {
+		"phpunit/phpunit": "^9.6|^10",
         "yoast/phpunit-polyfills": "^1.0"
     },
     "autoload-dev": {
