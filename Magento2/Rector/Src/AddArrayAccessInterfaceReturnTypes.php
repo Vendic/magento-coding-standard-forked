@@ -35,19 +35,23 @@ class AddArrayAccessInterfaceReturnTypes extends AbstractRector
             return null;
         }
 
+        $hasChanged = false;
         foreach ($node->getMethods() as $method) {
             if ($this->isName($method, 'offsetExists') && empty($method->getReturnType())) {
                 $method->returnType = new \PhpParser\Node\Name('bool');
+                $hasChanged = true;
             }
             if ($this->isName($method, 'offsetSet') && empty($method->getReturnType())) {
                 $method->returnType = new \PhpParser\Node\Name('void');
+                $hasChanged = true;
             }
             if ($this->isName($method, 'offsetUnset') && empty($method->getReturnType())) {
                 $method->returnType = new \PhpParser\Node\Name('void');
+                $hasChanged = true;
             }
         }
 
-        return null;
+        return $hasChanged ? $node : null;
     }
 
     /**
